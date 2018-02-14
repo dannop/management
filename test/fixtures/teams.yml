@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  number_of_members: 
+  user_id: one
+  limit_of_projects: 
+
+two:
+  name: MyString
+  number_of_members: 
+  user_id: two
+  limit_of_projects: 

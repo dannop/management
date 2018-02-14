@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  client: MyString
+  description: MyText
+  value: 9.99
+  start_date: 2018-02-13
+  end_date: 
+  e: MyString
+  team_id: one
+  current_sprint: 
+  total_sprint: 
+  finalized: false
+
+two:
+  name: MyString
+  client: MyString
+  description: MyText
+  value: 9.99
+  start_date: 2018-02-13
+  end_date: 
+  e: MyString
+  team_id: two
+  current_sprint: 
+  total_sprint: 
+  finalized: false

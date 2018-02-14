@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+<h1>Tasks</h1>
+<table>
+  <thead>
+    <% @tasks.each do |task| %>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <% if task.project_id.present? %>
+          <th>Project</th>
+        <% end %>
+        <% if task.directory_id.present? %>
+          <th>Directory</th>
+        <% end %>
+        <% if task.goal_id.present? %>
+          <th>Goal</th>
+        <% end %>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><%= task.name %></td>
+        <td><%= task.description %></td>
+        <% if task.project_id.present? %>
+          <td><%= task.project_id %></td>
+        <% end %>
+        <% if task.directory_id.present? %>
+          <td><%= task.directory_id %></td>
+        <% end %>
+        <% if task.goal_id.present? %>
+          <td><%= task.goal_id %></td>
+        <% end %>
+        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
+<br>
+
+<%= link_to 'New Task', new_task_path %>

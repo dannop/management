@@ -1,0 +1,19 @@
+<% if logged_in? %>
+    <p>Olá,
+      <%= link_to user_path(current_user.id), :class => "user-profile" do %>
+        <span><%= @current_user.first_name %><span>
+      <% end %>
+      |
+      <%= link_to logout_path, method: :delete do %>
+        <span>Sair</span>
+      <% end %>
+    </p>
+    <ul class="header-menu">
+      <li><a><%= link_to "Membros", users_path %></a></li>
+      <li><a><%= link_to "Times", teams_path %></a></li>
+      <li><a><%= link_to "Projetos", projects_path %></a></li>
+      <li><a><%= link_to "Diretorias", directories_path %></a></li>
+      <li><a><%= link_to "Objetivos", goals_path %></a></li>
+      <li><a><%= link_to "Tarefas", tasks_path %></a></li>
+    </ul>
+<% end %>

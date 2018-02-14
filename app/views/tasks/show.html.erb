@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @task.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @task.description %>
+</p>
+
+<% if @task.project_id.present? %>
+  <p>
+    <strong>Project:</strong>
+    <%= @task.project_id %>
+  </p>
+<% end %>
+
+<% if @task.directory_id.present? %>
+  <p>
+    <strong>Directory:</strong>
+    <%= @task.directory_id %>
+  </p>
+<% end %>
+
+<% if @task.goal_id.present? %>
+  <p>
+    <strong>Goal:</strong>
+    <%= @task.goal_id %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>

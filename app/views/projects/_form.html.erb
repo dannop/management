@@ -1,0 +1,72 @@
+<%= form_with(model: project, local: true) do |form| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :project_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :client %>
+    <%= form.text_field :client, id: :project_client %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :project_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.text_field :value, id: :project_value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_date %>
+    <%= form.date_select :start_date, id: :project_start_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_date %>
+    <%= form.text_field :end_date, id: :project_end_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :e %>
+    <%= form.text_field :e, id: :project_e %>
+  </div>
+
+  <div class="field">
+    <%= form.label :team_id_id %>
+    <%= form.text_field :team_id_id, id: :project_team_id_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :current_sprint %>
+    <%= form.text_field :current_sprint, id: :project_current_sprint %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_sprint %>
+    <%= form.text_field :total_sprint, id: :project_total_sprint %>
+  </div>
+
+  <div class="field">
+    <%= form.label :finalized %>
+    <%= form.check_box :finalized, id: :project_finalized %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

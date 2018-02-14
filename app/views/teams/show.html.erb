@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @team.name %>
+</p>
+
+<p>
+  <strong>Number of members:</strong>
+  <%= @team.number_of_members %>
+</p>
+
+<p>
+  <strong>Limit of projects:</strong>
+  <%= @team.limit_of_projects %>
+</p>
+
+<ul>
+  <strong>Membros</strong>
+<% @users_teams.each do |ut| %>
+  <% if ut.user.present? %>
+    <% if ut.user.first_name.present? %>
+      <li><%= ut.user.first_name %>
+    <% end %>
+    <% if @current_user.admin? %>
+      <%= link_to "Remover", ut, method: :delete, :class => "button-remove" %></li>
+    <% end %>
+  <% end %>
+<% end %>
+</ul>
+
+<% if current_user.admin %>
+  <p class="new-member-team">Adicionar Membro</p>
+
+  <%= form_for( @users_team, url: add_users_team_path, method: :patch) do |form| %>
+    <% if @users_team.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@users_team.errors.count, "error") %> prohibited this @users_team from being saved:</h2>
+        <ul>
+          <% @users_team.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="ui form">
+      <%= form.select(:user_id, @users.collect { |user| [user.first_name, user.id] }, {include_blank: "Membros Disponíveis"}) %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Adicionar Membro", :class => 'button-submit' %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Back', teams_path %>
